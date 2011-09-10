@@ -56,7 +56,7 @@ namespace MassiveDynamics.DLog
             set
             {
                 //Just return the format
-                this.format = Format;
+                this.format = value;
             }
 
         }
@@ -69,6 +69,28 @@ namespace MassiveDynamics.DLog
             get
             {
                 return "h:m:s.FFFF tt";
+            }
+        }
+
+        /// <summary>
+        /// The logger's current prefix
+        /// </summary>
+        private String prefix = "Anonymous";
+
+        /// <summary>
+        /// Gets or sets the prefix
+        /// </summary>
+        public String Prefix
+        {
+            //Getting it
+            get
+            {
+                return this.prefix;
+            }
+
+            //Setting it
+            set {
+                this.prefix = value;
             }
         }
 
