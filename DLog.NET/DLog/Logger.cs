@@ -64,7 +64,7 @@ namespace MassiveDynamics.DLog
         /// <summary>
         /// The default date/time format for all loggers
         /// </summary>
-        public String DefaultFormat
+        public static String DefaultFormat
         {
             get
             {
