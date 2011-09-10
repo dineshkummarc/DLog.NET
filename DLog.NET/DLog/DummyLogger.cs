@@ -29,9 +29,9 @@ namespace MassiveDynamics.DLog
 {
     /// <summary>
     /// A dummy logger that just destroys any input
-    /// <author>Cruz Bishop</author>
-    /// <version>0.9.0.0</version>
     /// </summary>
+    /// <author>Cruz Bishop</author>
+    /// <version>1.0.0.0</version>
     public class DummyLogger : Logger
     {
 

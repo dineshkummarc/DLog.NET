@@ -30,9 +30,9 @@ namespace MassiveDynamics.DLog
     /// <summary>
     /// An abstract class that defines a logger
     /// Also contains helper methods
+    /// </summary>
     /// <author>Cruz Bishop</author>
     /// <version>0.9.0.0</version>
-    /// </summary>
     public abstract class Logger
     {
 

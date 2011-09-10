@@ -29,9 +29,9 @@ namespace MassiveDynamics.DLog
 {
     /// <summary>
     /// A basic enumeration that defines log priorities
+    /// </summary>
     /// <author>Cruz Bishop</author>
     /// <version>1.0.0.0</version>
-    /// </summary>
     public enum LogSeverity
     {
         /// <summary>
