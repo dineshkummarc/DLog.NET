@@ -42,6 +42,7 @@
     <Compile Include="DLog\DummyLogger.cs" />
     <Compile Include="DLog\Logger.cs" />
     <Compile Include="DLog\LogSeverity.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
