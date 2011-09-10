@@ -37,6 +37,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DLog\ConsoleLogger.cs" />
     <Compile Include="DLog\DummyLogger.cs" />
     <Compile Include="DLog\Logger.cs" />
     <Compile Include="DLog\LogSeverity.cs" />
