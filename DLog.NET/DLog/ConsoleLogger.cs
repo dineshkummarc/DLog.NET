@@ -58,5 +58,13 @@ namespace MassiveDynamics.DLog
             //And destroy
             outputBuilder = null;
         }
+
+        /// <summary>
+        /// Disposes all extra resources introduced by this class
+        /// </summary>
+        public override void DisposeResources()
+        {
+            //Nothing was introduced, so THERE!
+        }
     }
 }

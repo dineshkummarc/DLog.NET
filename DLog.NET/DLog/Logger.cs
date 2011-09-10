@@ -32,8 +32,8 @@ namespace MassiveDynamics.DLog
     /// Also contains helper methods
     /// </summary>
     /// <author>Cruz Bishop</author>
-    /// <version>1.0.0.0</version>
-    public abstract class Logger
+    /// <version>1.0.1.0</version>
+    public abstract class Logger : IDisposable
     {
 
         /// <summary>
@@ -164,5 +164,38 @@ namespace MassiveDynamics.DLog
             this.Log(LogSeverity.Critical, data);
         }
 
+        /// <summary>
+        /// Disposes all resources
+        /// </summary>
+        public void Dispose()
+        {
+            //We're disposing
+            this.Dispose(true);
+            //Suppress finalization
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Disposes all resources
+        /// </summary>
+        /// <param name="disposeManagedResources">Whether to dispose managed resources</param>
+        protected virtual void Dispose(bool disposeManagedResources)
+        {
+            //Are we disposing in a managed way?
+            if (disposeManagedResources)
+            {
+                //Kill the format
+                this.Format = null;
+                //And kill the prefix
+                this.Prefix = null;
+                //Finally, call the DisposeResources method
+                this.DisposeResources();
+            }
+        }
+
+        /// <summary>
+        /// Disposes all managed resources introduced by the implementation of this class
+        /// </summary>
+        public abstract void DisposeResources();
     }
 }

@@ -44,5 +44,13 @@ namespace MassiveDynamics.DLog
         {
             //Do nothing
         }
+
+        /// <summary>
+        /// Disposes all extra resources introduced by this class
+        /// </summary>
+        public override void DisposeResources()
+        {
+            //This is a dummy logger, so BAH!
+        }
     }
 }
