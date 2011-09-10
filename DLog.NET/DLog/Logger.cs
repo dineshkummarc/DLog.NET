@@ -32,9 +32,45 @@ namespace MassiveDynamics.DLog
     /// Also contains helper methods
     /// </summary>
     /// <author>Cruz Bishop</author>
-    /// <version>0.9.0.0</version>
+    /// <version>1.0.0.0</version>
     public abstract class Logger
     {
+
+        /// <summary>
+        /// The current date/time formatting for this logger
+        /// </summary>
+        private String format = "h:m:s.FFFF tt";
+
+        /// <summary>
+        /// Gets and sets the format for this logger
+        /// </summary>
+        public String Format
+        {
+            //Getting it
+            get
+            {
+                //Just return the format
+                return this.format;
+            }
+            //Setting it
+            set
+            {
+                //Just return the format
+                this.format = Format;
+            }
+
+        }
+
+        /// <summary>
+        /// The default date/time format for all loggers
+        /// </summary>
+        public String DefaultFormat
+        {
+            get
+            {
+                return "h:m:s.FFFF tt";
+            }
+        }
 
         /// <summary>
         /// Logs the specified data with the specified severity
