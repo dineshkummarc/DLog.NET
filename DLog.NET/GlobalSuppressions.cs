@@ -9,3 +9,4 @@
 // You do not need to add suppressions to this file manually.
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "NET")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "LogNormal", Scope = "member", Target = "MassiveDynamics.DLog.Logger.#LogNormal(System.Object)")]
