@@ -32,9 +32,67 @@ namespace MassiveDynamics.DLog
     /// Also contains helper methods
     /// </summary>
     /// <author>Cruz Bishop</author>
-    /// <version>0.9.0.0</version>
-    public abstract class Logger
+    /// <version>1.0.1.0</version>
+    public abstract class Logger : IDisposable
     {
+
+        /// <summary>
+        /// The current date/time formatting for this logger
+        /// </summary>
+        private String format = "h:m:s.FFFF tt";
+
+        /// <summary>
+        /// Gets and sets the format for this logger
+        /// </summary>
+        public String Format
+        {
+            //Getting it
+            get
+            {
+                //Just return the format
+                return this.format;
+            }
+            //Setting it
+            set
+            {
+                //Just return the format
+                this.format = value;
+            }
+
+        }
+
+        /// <summary>
+        /// The default date/time format for all loggers
+        /// </summary>
+        public static String DefaultFormat
+        {
+            get
+            {
+                return "h:m:s.FFFF tt";
+            }
+        }
+
+        /// <summary>
+        /// The logger's current prefix
+        /// </summary>
+        private String prefix = "Anonymous";
+
+        /// <summary>
+        /// Gets or sets the prefix
+        /// </summary>
+        public String Prefix
+        {
+            //Getting it
+            get
+            {
+                return this.prefix;
+            }
+
+            //Setting it
+            set {
+                this.prefix = value;
+            }
+        }
 
         /// <summary>
         /// Logs the specified data with the specified severity
@@ -106,5 +164,38 @@ namespace MassiveDynamics.DLog
             this.Log(LogSeverity.Critical, data);
         }
 
+        /// <summary>
+        /// Disposes all resources
+        /// </summary>
+        public void Dispose()
+        {
+            //We're disposing
+            this.Dispose(true);
+            //Suppress finalization
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Disposes all resources
+        /// </summary>
+        /// <param name="disposeManagedResources">Whether to dispose managed resources</param>
+        protected virtual void Dispose(bool disposeManagedResources)
+        {
+            //Are we disposing in a managed way?
+            if (disposeManagedResources)
+            {
+                //Kill the format
+                this.Format = null;
+                //And kill the prefix
+                this.Prefix = null;
+                //Finally, call the DisposeResources method
+                this.DisposeResources();
+            }
+        }
+
+        /// <summary>
+        /// Disposes all managed resources introduced by the implementation of this class
+        /// </summary>
+        public abstract void DisposeResources();
     }
 }

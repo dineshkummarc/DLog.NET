@@ -28,21 +28,35 @@ using System.Text;
 namespace MassiveDynamics.DLog
 {
     /// <summary>
-    /// A dummy logger that just destroys any input
+    /// A basic logger that logs to the console
+    /// Does not check to see if a console is available yet.
+    /// Does not use console colors
     /// </summary>
-    /// <author>Cruz Bishop</author>
-    /// <version>1.0.0.0</version>
-    public class DummyLogger : Logger
+    public class ConsoleLogger : Logger
     {
-
         /// <summary>
-        /// Supposedly logs the data with the specified input
+        /// Logs the specified data with the specified severity
         /// </summary>
-        /// <param name="severity">The severity to "use"</param>
-        /// <param name="data">The data to "log"</param>
+        /// <param name="severity">The severity to use</param>
+        /// <param name="data">The data to log</param>
         public override void Log(LogSeverity severity, object data)
         {
-            //Do nothing
+            //Set up the output builder
+            StringBuilder outputBuilder = new StringBuilder("");
+            //Add the formatted date
+            outputBuilder.Append(DateTime.Now.ToString(this.Format));
+            //Add the severity
+            outputBuilder.Append(": [")
+                    .Append(Enum.GetName(typeof(LogSeverity), severity))
+                    .Append("] ");
+            //And the prefix
+            outputBuilder.Append(this.Prefix).Append(" - ");
+            //And finally the data
+            outputBuilder.Append(data);
+            //Then let's log it
+            Console.WriteLine(outputBuilder.ToString());
+            //And destroy
+            outputBuilder = null;
         }
 
         /// <summary>
@@ -50,7 +64,7 @@ namespace MassiveDynamics.DLog
         /// </summary>
         public override void DisposeResources()
         {
-            //This is a dummy logger, so BAH!
+            //Nothing was introduced, so THERE!
         }
     }
 }
